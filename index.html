@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Will you be mine?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html { background: #fbaa99; font-family: sans-serif; text-align: center; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; }
+    .button { padding: 12px 20px; font-size: 1.2rem; margin: 10px; border: none; border-radius: 5px; cursor: pointer; }
+    .yes-button { background: #04AA6D; color: white; }
+    .no-button { background: #f44336; color: white; }
+    img { max-width: 300px; border-radius: 10px; }
+    .val-text { font-size: 1.5rem; margin: 1rem; }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <img id="main-img" src="https://media.tenor.com/vknNeIAWurIAAAAi/tkthao219-bear.gif" alt="bear" />
+    <div class="val-text" id="val-text">Will you be mine?</div>
+    <div>
+      <button class="button yes-button" onclick="handleYes()">Yes</button>
+      <button class="button no-button" onclick="handleNo()">No</button>
+    </div>
+  </div>
+
+  <script>
+    let noCount = 0;
+    const noImages = [
+      "https://media1.tenor.com/m/7o-5XzerDOsAAAAd/cat-reaction-michi-triste.gif",
+      "https://media.tenor.com/-2rbVbnfW24AAAAi/crying-cat-sad-kitty.gif",
+      "https://media.tenor.com/td1eOUC2i_wAAAAi/bitternights-sobbing.gif",
+      "https://media1.tenor.com/m/0yJbcfwQyu8AAAAC/cry-crying.gif",
+      "https://media1.tenor.com/m/nOyR1l5Prr8AAAAC/thurston-waffles-cry.gif",
+      "https://media1.tenor.com/m/gPb_q8nEBs8AAAAC/cry-cat.gif",
+      "https://media1.tenor.com/m/9kZ3AFcQNPMAAAAd/cat-fall-cat.gif",
+    ];
+    const phrases = [
+      "No", "ไม่จริงย๋อ?", "ไม่จิงเง้อออ?", "นะๆ", "please", "ม่ายจิงงงะะะ?", ":("
+    ];
+
+    function handleYes() {
+      document.getElementById("main-img").src = "https://media.tenor.com/hwbzmu_3Ez4AAAAj/i-love-you-thank-you-for-coming-into-my-life.gif";
+      document.getElementById("val-text").innerText = "Yayyy ❤️";
+      document.querySelector(".yes-button").style.display = "none";
+      document.querySelector(".no-button").style.display = "none";
+    }
+
+    function handleNo() {
+      noCount++;
+      document.getElementById("main-img").src = noImages[Math.min(noCount - 1, noImages.length - 1)];
+      document.getElementById("val-text").innerText = phrases[Math.min(noCount, phrases.length - 1)];
+    }
+  </script>
+</body>
+</html>
